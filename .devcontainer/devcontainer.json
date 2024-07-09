@@ -44,8 +44,8 @@
 				"redhat.vscode-yaml"
 			]
 		}
-	},
-	"postCreateCommand": "mkcert -cert-file .ssl/localhost.pem -key-file .ssl/localhost-key.pem localhost 127.0.0.1 ::0"
+	}
+	// "postCreateCommand": "mkcert -cert-file .ssl/localhost.pem -key-file .ssl/localhost-key.pem localhost 127.0.0.1 ::0"
 	// "postCreateCommand": "mkcert -install && mkcert localhost 127.0.0.1 ::1"
 	// Configure tool-specific properties.
 	// "customizations": {},

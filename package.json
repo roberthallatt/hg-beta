@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack serve --env development",
     "build": "webpack --env production",
+    "start": "node server.js",
     "cert": "mkcert -cert-file .ssl/localhost.pem -key-file .ssl/localhost-key.pem localhost 127.0.0.1 ::0"
   },
   "keywords": [],

@@ -1,2 +1,3 @@
-# hg-beta
-Updated HG web site
+# Dev Container Demo
+
+Using VSC dev containers.

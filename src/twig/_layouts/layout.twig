@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site{% if title|length %} - {{ title }}{% endif %}</title>
+</head>
+    <body>
+    {# <body class="bg-gradient-to-b from-yellow-500 via-yellow-300 to-yellow-300 h-screen flex flex-col min-hscreen"> #}
+      {# header #}
+      {% include "../_partials/header.twig" %}
+        {# <div class="desktop:container flex-grow"> #}
+          {# main body #}
+          {% block main %}{% endblock %}
+        {# </div> #}
+      {# footer #}
+      {% include "../_partials/footer.twig" %}
+    </body>
+</html>

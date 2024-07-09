@@ -18,6 +18,12 @@
 	"forwardPorts": [
 		"80:3000"
 	],
+	"portsAttributes": {
+        "8080": {
+            "label": "Webserver",
+            "onAutoForward": "openBrowser"
+        }
+    },
 	"mounts": [
     	"source=${localWorkspaceFolder}/.ssl,target=/workspace/.ssl,type=bind"
 	],
@@ -44,8 +50,8 @@
 				"redhat.vscode-yaml"
 			]
 		}
-	}
-	// "postCreateCommand": "mkcert -cert-file .ssl/localhost.pem -key-file .ssl/localhost-key.pem localhost 127.0.0.1 ::0"
+	},
+	"postStartCommand": "npm install && npm run dev"
 	// "postCreateCommand": "mkcert -install && mkcert localhost 127.0.0.1 ::1"
 	// Configure tool-specific properties.
 	// "customizations": {},

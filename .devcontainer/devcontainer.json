@@ -52,8 +52,7 @@
 			]
 		}
 	},
-	"postStartCommand": "npm install && npm run dev"
-	// "postCreateCommand": "mkcert -install && mkcert localhost 127.0.0.1 ::1"
+	"postCreateCommand": "sh .devcontainer/post-create.sh"
 	// Configure tool-specific properties.
 	// "customizations": {},
 

@@ -1,0 +1,38 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = 'Financial Statements' %}
+{% set seo_keywords = 'financial, statements, report' %}
+{% set seo_description = 'Financial statements for the Healthy Generations' %}
+{% set seo_title = 'Financial Statements' %}
+{% extends '_layouts/layout.twig' %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+  <h1>{{ title }}</h1>
+
+  <ul>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-fs2023_final.pdf">2023 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-signed-fs22.pdf" target="_blank">2022 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-fs21.pdf" target="_blank">2021 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Final_-_2020_-_audited_financials_-_Healthy_Generations-signed-fs20.pdf" target="_blank">2020 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-fs19.pdf">2019 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-fs18.pdf" target="_blank">2018 Financial Statements</a>&nbsp;</li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-fs17.pdf">2017 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-fs16.pdf">2016 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/Healthy_Generations-fs15.pdf">2015 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/HG_-_Financial_Statements_-_FY_2014.pdf">2014 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/HG_-_Financial_Statements_-_FY_2013.pdf">2013 Financial Statements</a></li>
+    <li><a href="https://healthygenerations.ca/uploads/content/HG_-_Financial_Statements_-_FY_2012.pdf">2012 Financial Statements</a></li>
+  </ul>
+
+{% endblock %}

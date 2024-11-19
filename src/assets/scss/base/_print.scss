@@ -1,0 +1,113 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS print classes.
+// -----------------------------------------------------------------------------
+
+@media print {
+
+    /* Remove all background colors and images */
+    * {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      color: #000 !important; /* Force black color for all text */
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    /* Reset body padding */
+    body {
+      padding-top: 0;
+      background-color: #fff !important;
+    }
+
+    /* Ensure text is fully opaque */
+    body, p, div, span, h1, h2, h3, h4, h5, h6 {
+      color: #000 !important;
+      opacity: 1 !important;
+    }
+
+    /* Ensure links are underlined and black */
+    a, a:visited {
+      text-decoration: underline;
+      color: #000 !important;
+    }
+
+    /* Style for the header */
+    // .print-header {
+    //   position: running(header);
+    //   height: 50px; /* Adjust as needed */
+    //   background-color: #fff;
+    //   border-bottom: 1px solid #000;
+    //   padding: 10px;
+    // }
+
+
+    // New style for the footer
+    .print-footer {
+      position: running(footer);
+      height: 5px; /* Adjust as needed */
+      background-color: #fff;
+      border-top: 1px solid #000;
+      padding: 10px;
+    }
+
+    .print-fit-page {
+      max-height: 100vh;
+      object-fit: contain;
+      page-break-before: auto;
+      page-break-after: auto;
+      margin-bottom: 0; /* Add some space after the image */
+    }
+
+    /* Adjust content to account for header */
+    .content-wrapper {
+      margin-top: -60px; /* Should be slightly more than header height */
+      margin-bottom: 90px; /* Should be slightly more than footer height */
+    }
+
+    .print-page-break-after {
+        page-break-after: always;
+        margin-bottom: 0; // Remove bottom margin to avoid extra space
+    }
+
+    /* Place the header at the top of each page */
+    @page {
+
+      margin-top: 90px; /* Should match content-wrapper margin-top */
+
+      @top-center {
+        content: element(header);
+      }
+
+      @bottom-center {
+        content: element(footer);
+      }
+
+    }
+
+     /* Prevent content from printing on the same page as a large image */
+    img {
+      filter: grayscale(100%);
+      max-width: 100% !important;
+      height: auto;
+      page-break-inside: avoid;
+    }
+
+    /* Keep table headers with their tables */
+    thead {
+      display: table-header-group;
+    }
+
+    /* Avoid splitting tables across pages */
+    table {
+      page-break-inside: avoid;
+    }
+
+}
+
+/* Hide the header in normal screen view */
+@media screen {
+  .print-header {
+    display: none;
+  }
+}

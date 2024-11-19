@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+
+  {% include "../_partials/meta.twig" %}
+
+  <!-- WEBPACK_CSS_INJECT -->
+</head>
+  <body class="bg-gray-100 print:bg-white font-sans flex flex-col min-h-full debug-screens">
+    
+    <!-- skip nav -->
+    
+    <a href="#main" class="skip-to-main-content-link" id="skip-link">Skip to main content</a>
+    
+    {% include "../_partials/header.twig" %}
+      {% block main %}{% endblock %}
+    {% include "../_partials/footer-one.twig" %}
+
+    <!-- WEBPACK_JS_INJECT -->
+  </body>
+</html>

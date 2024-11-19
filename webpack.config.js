@@ -6,10 +6,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-require('dotenv').config(); // Load environment variables from .env file
+const WatchExternalFilesPlugin = require('webpack-watch-files-plugin').default;
+const webpack = require('webpack');
+require('dotenv').config();
 
-// create a list of twig files to generate
-// filter out anything that starts with an underscore or is not a twig file
+class InjectAssetsPlugin {
+  apply(compiler) {
+    compiler.hooks.compilation.tap('InjectAssetsPlugin', (compilation) => {
+      HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
+        'InjectAssetsPlugin',
+        (data, cb) => {
+          const cssFiles = Object.keys(compilation.assets).filter(file => file.endsWith('.css'));
+          const jsFiles = Object.keys(compilation.assets).filter(file => file.endsWith('.js'));
+
+          const cssLinks = cssFiles.map(file => `<link href="/${file}" rel="stylesheet">`).join('\n');
+          const jsScripts = jsFiles.map(file => `<script defer src="/${file}"></script>`).join('\n');
+
+          data.html = data.html.replace('<!-- WEBPACK_CSS_INJECT -->', cssLinks);
+          data.html = data.html.replace('<!-- WEBPACK_JS_INJECT -->', jsScripts);
+
+          cb(null, data);
+        }
+      );
+    });
+  }
+}
+
 function walk(dir) {
   let results = [];
   const list = fs.readdirSync(dir);
@@ -17,7 +39,6 @@ function walk(dir) {
     file = `${dir}/${file}`;
     const stat = fs.statSync(file);
     if (stat && stat.isDirectory() && path.basename(file).indexOf('_') !== 0) {
-      /* Recurse into a subdirectory */
       results = results.concat(walk(file));
     } else if (
       stat &&
@@ -25,7 +46,6 @@ function walk(dir) {
       path.extname(file) === '.twig' &&
       path.basename(file).indexOf('_') !== 0
     ) {
-      /* Is a file */
       results.push(file);
     }
   });
@@ -33,19 +53,18 @@ function walk(dir) {
 }
 const files = walk('./src/twig');
 
-// generates html plugins to export
 const htmlPlugins = files.map(
   file =>
-    // Create new HTMLWebpackPlugin with options
     new HtmlWebpackPlugin({
       filename: file.replace('./src/twig/', '').replace('.twig', '.html'),
       template: path.resolve(__dirname, file),
-      hash: true,
+      inject: false,
+      minify: {
+        removeComments: false,
+        collapseWhitespace: true
+      }
     })
 );
-
-// Read proxy URL from environment variables
-const proxyUrl = process.env.PROXY_URL;
 
 module.exports = (env) => {
   const isProduction = env.production === true;
@@ -58,9 +77,10 @@ module.exports = (env) => {
     output: {
       publicPath: '/',
       path: path.resolve(__dirname, 'dist'),
-      filename: isProduction ? '[name][contenthash].js' : '[name].js',
-      assetModuleFilename: isProduction ? '[name][contenthash][ext]' : '[name][ext]',
+      filename: isProduction ? '[name].[contenthash].js' : '[name].js',
+      assetModuleFilename: isProduction ? '[name].[contenthash][ext]' : '[name][ext]',
     },
+    cache: false,
     devtool: isProduction ? false : 'source-map',
     devServer: {
       static: {
@@ -69,27 +89,47 @@ module.exports = (env) => {
       server: {
         type: 'https',
         options: {
-          key: fs.readFileSync('/workspace/.ssl/localhost-key.pem'),
-          cert: fs.readFileSync('/workspace/.ssl/localhost.pem'),
+          key: fs.readFileSync('./.ssl/localhost-key.pem'),
+          cert: fs.readFileSync('./.ssl/localhost.pem'),
         },
       },
       port: 3000,
       open: true,
-      hot: true,
-      compress: false, // Disable compression
+      hot: false,
+      liveReload: true,
+      compress: false,
       historyApiFallback: true,
-      watchFiles: ['src/**/*'],
-      ...(proxyUrl ? { proxy: { '/api': { target: proxyUrl, secure: false, changeOrigin: true } } } : {}),
+      watchFiles: {
+        paths: ['src/**/*.scss', 'src/**/*.js', 'src/**/*.twig'],
+        options: {
+          usePolling: false,
+          ignored: /node_modules/,
+        },
+      },
+      // ...(proxyUrl ? { proxy: { '/api': { target: proxyUrl, secure: false, changeOrigin: true } } } : {}),
     },
     module: {
       rules: [
         {
-          test: /\.scss$/, // Process .scss files with "sass-loader", "css-loader", "postcss-loader", and "MiniCssExtractPlugin".
+          test: /\.scss$/,
           use: [
-            MiniCssExtractPlugin.loader, // Extract CSS into separate files for production build.
-            "css-loader", // Translates CSS into CommonJS.
-            "postcss-loader", // PostCSS is used for autoprefixing CSS for better cross-browser support.
-            "sass-loader", // Compiles SCSS to CSS.
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '../', // Adjust this path if needed
+              },
+            },
+            "css-loader",
+            "postcss-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                sassOptions: {
+                  quietDeps: true,
+                  verbose: false
+                }
+              }
+            },
           ],
         },
         {
@@ -109,7 +149,6 @@ module.exports = (env) => {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
         },
-        // Twig templates
         {
           test: /\.twig$/,
           use: [
@@ -137,17 +176,23 @@ module.exports = (env) => {
         new CssMinimizerPlugin(),
       ],
     } : {
-      minimize: false, // Disable minimization in development mode
+      minimize: false,
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: isProduction ? '[name][contenthash].css' : '[name].css',
+        filename: isProduction ? '[name].[contenthash].css' : '[name].css',
       }),
       new CopyWebpackPlugin({
         patterns: [
           { from: './src/assets/img', to: './assets/img' }
         ]
       }),
+      new WatchExternalFilesPlugin({
+        files: [
+          'src/**/*.scss',
+        ],
+      }),
+      new InjectAssetsPlugin(),
       ...(isProduction ? [new CleanWebpackPlugin({
         protectWebpackAssets: true,
         cleanOnceBeforeBuildPatterns: [],
@@ -159,7 +204,7 @@ module.exports = (env) => {
             '!uploads/**',
             '!assets/**',
         ],
-    })] : []),
+      })] : []),
     ].concat(htmlPlugins),
   };
-}
+};

@@ -1,19 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site{% if title|length %} - {{ title }}{% endif %}</title>
+
+  {% include "../_partials/meta.twig" %}
+
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  <!-- WEBPACK_CSS_INJECT -->
 </head>
-    <body>
-    {# <body class="bg-gradient-to-b from-yellow-500 via-yellow-300 to-yellow-300 h-screen flex flex-col min-hscreen"> #}
-      {# header #}
-      {% include "../_partials/header.twig" %}
-        {# <div class="desktop:container flex-grow"> #}
-          {# main body #}
-          {% block main %}{% endblock %}
-        {# </div> #}
-      {# footer #}
-      {% include "../_partials/footer.twig" %}
-    </body>
+  <body class="bg-gray-100 print:bg-white font-sans flex flex-col min-h-full debug-screens">
+
+    <!-- skip nav -->
+
+    <a href="#main-body" class="skip-to-main-content-link" id="skip-link">Skip to main content</a>
+
+    {% include "../_partials/header.twig" %}
+      <section class="content-wrapper lg:container mx-auto px-4 py-3 lg:py-12 flex-grow sm:w-full md:w-full">
+        <div class="flex flex-col lg:flex-row lg:-mx-5">
+          {% include "../_partials/sidebar.twig" %}
+          <main id="main-body" class="order-1 lg:order-2 w-full sm:w-full md:w-full sm:order-none md:order-none sm:block lg:w-3/4 px-5 mt-4 lg:mt-0 print:w-full">
+            <div class="
+              prose
+              lg:prose-base
+              max-w-none
+              prose-h1:mb-6
+              prose-h1:text-3xl
+              prose-h1:font-bold
+              prose-h2:mt-6
+              prose-h2:mb-4
+              prose-h2:text-2xl
+              prose-h2:font-semibold
+              prose-p:mb-4
+              prose-li:marker:text-black
+              prose-ul:sm:ml-3
+              prose-ol:sm:ml-3
+              prose-ul:md:ml-3
+              prose-ol:md:ml-3
+              prose-ul:lg:ml-6
+              prose-ol:lg:ml-6
+            ">
+              {% block main %}{% endblock %}
+            </div>
+          </main>
+        </div>
+      </section>
+    {% include "../_partials/footer-one.twig" %}
+
+    <!-- WEBPACK_JS_INJECT -->
+  </body>
 </html>

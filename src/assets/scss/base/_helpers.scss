@@ -1,3 +1,9 @@
 // -----------------------------------------------------------------------------
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
+
+// prevents FOUC for menu dropdowns
+
+[x-cloak] {
+    display: none !important;
+}

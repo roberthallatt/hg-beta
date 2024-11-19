@@ -1,4 +1,4 @@
-name: hg-beta.test
+name: hg-beta
 type: php
 docroot: dist
 php_version: "8.2"

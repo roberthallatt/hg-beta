@@ -1,9 +1,27 @@
-// .footer-wrapper {
+footer a {
+    
+    color: #fff;
 
-//     @apply w-full desktop:w-[1280px] mx-auto  m-0 p-5 min-h-60;
+    &:hover {
+        color: #f1f1f1;
+    }
 
-//     p {
-//         @apply text-white;
-//     };
 
-// }
+    &:visited {
+        color: #f1f1f1;
+    }
+
+
+    &:active {
+        color: #f1f1f1;
+    }
+
+    &:focus {
+        color: #f1f1f1;
+    }
+
+}
+
+.filter-white {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}

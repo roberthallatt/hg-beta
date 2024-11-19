@@ -1,0 +1,35 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Privacy, Ethics, Accountability" %}
+{% set seo_keywords = 'Privacy, Ethics, Accountability' %}
+{% set seo_description = 'Healthy Generations values the trust of our donors and is committed to protecting their privacy.' %}
+{% set seo_title = "Privacy, Ethics, Accountability" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+    <hgroup>
+      <h1>{{ title }}</h1>
+      <h2>Privacy</h2>
+    </hgroup>
+
+    <p>Healthy Generations values the trust of our donors and is committed to protecting their privacy. We do not sell, rent or trade our donor lists. Any information we collect is used only for processing donations, keeping donors updated about foundation activities and occasionally asking for continued support to help us accomplish our goals.</p>
+
+    <h2>Ethics & Accountability</h2>
+    <p>As the charitable foundation of the Canadian Paediatric Society, Healthy Generations must uphold high ethical standards. Our success depends on public trust, confidence and support.</p>
+
+    <p>The CPS itself is accountable to a wide range of stakeholders, including its members, the wider health care community, its sponsors, and the broader Canadian public, who look to the CPS to help make decisions about child and youth health. Because of its relationship with the CPS, Healthy Generations is also subject to the CPS Code of Ethics.</p>
+
+    <p>Healthy Generations is a proud member of Imagine Canada.</p>
+
+{% endblock %}

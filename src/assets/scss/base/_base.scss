@@ -26,12 +26,29 @@
  */
  
 a {
-  color: $brand-color;
-  text-decoration: none;
+  @apply text-blue-600 no-underline;
 
   @include on-event {
-    color: $text-color;
-    text-decoration: underline;
+    @apply text-blue-800 underline;
   }
 
+}
+
+.skip-to-main-content-link {
+  position: absolute;
+  top: -999px;
+  left: -999px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  z-index: 9999;
+  transition: top 0.3s;
+}
+
+.skip-to-main-content-link:focus {
+  top: 0;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
 }

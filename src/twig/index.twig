@@ -8,68 +8,60 @@ Requires thes packages: raw-loader, twig-html-loader
 
 #}
 
-{% set title = "Dev Container Demo - It's simply brilliant" %}
-{% extends "_layouts/layout.twig" %}
+{% set title = "Home" %}
+{% set seo_title = "Supporting Children's Health Needs" %}
+{% set seo_keywords = 'Home, Healthy Generations, Giving, Donations' %}
+{% set seo_description = 'Since 1985, Healthy Generations has raised funds to support the goal it shares with the Canadian Paediatric Society of improving the health and well being of children and youth.' %}
+{% extends "_layouts/home.twig" %}
 
 {% block main %}
-    {# <main>
-    
-      <section> #}
 
-        <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
-          <img src="/assets/img/beams.jpg" alt="" class="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" />
-          <div class="absolute inset-0 bg-none bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-          <div class="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 mx-auto max-w-lg rounded-lg  w-[512px]">
-            <div class="mx-auto max-w-md">
-              <img src="/assets/img/logo.svg" class="h-6" alt="Tailwind Play" />
-              <div class="divide-y divide-gray-300/50">
-                <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
-                  <p>An advanced online playground for Tailwind CSS, including support for things like:</p>
-                  <ul class="space-y-4">
-                    <li class="flex items-center">
-                      <svg class="h-6 w-6 flex-none fill-blue-100 stroke-blue-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="11" />
-                        <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
-                      </svg>
-                      <p class="ml-4">
-                        Customizing your
-                        <code class="text-sm font-bold text-gray-900">tailwind.config.js</code> file
-                      </p>
-                    </li>
-                    <li class="flex items-center">
-                      <svg class="h-6 w-6 flex-none fill-blue-100 stroke-blue-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="11" />
-                        <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
-                      </svg>
-                      <p class="ml-4">
-                        Extracting classes with
-                        <code class="text-sm font-bold text-gray-900">@apply</code>
-                      </p>
-                    </li>
-                    <li class="flex items-center">
-                      <svg class="h-6 w-6 flex-none fill-blue-100 stroke-blue-500 stroke-2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="11" />
-                        <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
-                      </svg>
-                      <p class="ml-4">Code completion with instant preview</p>
-                    </li>
-                  </ul>
-                  <p>Perfect for learning how the framework works, prototyping a new idea, or creating a demo to share online.</p>
+    <main id="main" class="content-wrapper lg:container mx-auto px-4 pb-12 lg:py-12 flex-grow print:mb-0">
+        <section class="flex flex-col print:flex-col md:flex-row lg:flex-row justify-between items-center lg:mt-0 mb-12">
+            <div class="w-full: md:w-3/4 lg:w-1/2 lg:pr-20 mb-8 lg:mb-0 lg:pl-14">
+                <h1 class="!text-6xl md:!text-5xl lg:!text-6xl !mt-8 lg:!mt-0 font-bold text-blue-600 mb-6 text-center">Healthy<br>Generations</h1>
+                <p class="text-xl md:text-[26px] text-blue-600 text-center mb-6">We are committed to supporting the health needs of children and youth
+                </p>
+                <h2 class="text-2xl font-semibold text-blue-600 text-center mb-8 print:mb-5">Donate generously</h2>
+                <div class="flex justify-center items-center">
+                  <a href="https://www.canadahelps.org/en/charities/healthy-generations/" target="_blank" class="bg-yellow-400 !no-underline hover:text-shadow-lg text-black tracking-wider font-semibold py-4 print:py-0 print:mb-8 px-8 text-2xl rounded-xl [text-shadow:_0_2px_4px_rgb(102_102_102_/_0.4)]">Donate Now</a>
                 </div>
-                <div class="pt-8 text-base font-semibold leading-7">
-                  <p class="text-gray-900">Want to dig deeper into Tailwind?</p>
-                  <p>
-                    <a href="https://tailwindcss.com/docs" class="text-blue-500 hover:text-blue-600">Read the docs &rarr;</a>
-                  </p>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
+            <div class="w-full lg:w-1/2">
+                <img src="/assets/img/hero.avif" alt="Children smiling" class="print-page-break-after rounded-lg shadow-lg w-full sm:portrait:mt-2 sm:landscape:mt-12 md:portrait:mt-2 md:landscape:mt-12">
+            </div>
+        </section>
 
-
-      {# </section>
-
-    </main> #}
+        <section class="grid grid-cols-1 print:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 print:gap-0">
+            <article class="bg-gray-950 text-white p-6 rounded-lg print:mt-0 print:mb-0">
+                <h2 class="text-2xl font-bold mb-4">Our Story</h2>
+                <p class="text-base">
+                    Since 1985, Healthy Generations has raised funds to support the goal it shares with the Canadian
+                    Paediatric Society of improving the health and well being of children and youth. Healthy Generations
+                    does so by supporting three priority projects: Paediatric Resident Advocacy Education, the Dr. Kent
+                    Saylor Bursary for Indigenous Medical Students and Healthy Child Uganda.
+                </p>
+            </article>
+            <article class="bg-white p-6 rounded-lg shadow print:mt-0 print:mb-0">
+                <h3 class="text-xl font-bold mb-2">Paediatric Resident Advocacy Education</h3>
+                <p class="text-base mb-4">As advocates for the young, paediatric residents have the opportunity to submit
+                    grant proposals to Healthy Generations.</p>
+                <a href="#" class="text-blue-600">Read more...</a>
+            </article>
+            <article class="bg-white p-6 rounded-lg shadow print:mt-0 print:mb-0">
+                <h3 class="text-xl font-bold mb-2">Healthy Child Uganda</h3>
+                <p class="text-base mb-4">Donations support this community-based project to provide child health training
+                    to Ugandan community volunteers and local health care practitioners.</p>
+                <a href="#" class="text-blue-600">Read more...</a>
+            </article>
+            <article class="bg-white p-6 rounded-lg shadow print:mt-0 print:mb-0">
+                <h3 class="text-xl font-bold mb-2">Dr. Kent Saylor Bursary for Indigenous Medical Students</h3>
+                <p class="text-base mb-4">The Dr. Kent Saylor Bursary for Indigenous Medical Students will provide an
+                    Indigenous medical student interested in paediatrics with funding to assist them in exploring and
+                    gaining knowledge, and hopefully lead to them choosing paediatrics as a career.</p>
+                <a href="#" class="text-blue-600">Read more...</a>
+            </article>
+        </section>
+    </main>
 
 {% endblock %}

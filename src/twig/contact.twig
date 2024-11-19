@@ -1,0 +1,38 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Contact us" %}
+{% set seo_title = "" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+    <section class="content-wrapper lg:container mx-auto px-4 py-3 lg:py-12 flex-grow sm:w-full md:w-full">
+
+      <div class="flex flex-col sm:block md:block lg:flex-row lg:-mx-5">
+
+        {% include "_partials/sidebar.twig" %}
+
+        <main id="main-body" class="order-1 lg:order-2 w-full sm:block lg:w-3/4 px-5 mt-4 lg:mt-0 print:w-full">
+
+          <!-- Main Content -->
+  
+          <h1>{{ title }}</h1>
+          <p><strong>Healthy Generations</strong></p>
+          <p>100-2305 St. Laurent Blvd.<br />Ottawa, Ont. K1G 4J8<br /><br /><strong>Tel.:</strong>&nbsp;613-526-9397 ext. 227<br /><strong>Fax:</strong>&nbsp;613-526-3332<br /><strong>E-mail:</strong>&nbsp;
+          <span class="protected-email" data-email="&#72;&#101;&#97;&#108;&#116;&#104;&#121;&#71;&#101;&#110;&#101;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#99;&#112;&#115;&#46;&#99;&#97;" aria-label="Email address, click to reveal"></span></p>
+        
+        </main>
+
+      </div>
+
+    </section>
+
+{% endblock %}

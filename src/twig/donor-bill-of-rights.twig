@@ -1,0 +1,37 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Donor Bill Of Rights" %}
+{% set seo_keywords = 'Philanthropy, Rights' %}
+{% set seo_description = 'Philanthropy is based on voluntary action for the common good' %}
+{% set seo_title = "Donor Bill Of Rights" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+  <h1>{{ title }}</h1>
+  <p>Philanthropy is based on voluntary action for the common good. It is a tradition of giving and sharing that is primary to the quality of life. To assure that philanthropy merits the respect and trust of the general public, and that donors and prospective donors can have full confidence in the not-for-profit organizations and causes they are asked to support, we declare that all donors have these rights:</p>
+  <ol class="roman">
+    <li>To be informed of the organization's mission, of the way the organization intends to use donated resources, and of its capacity to use donations effectively for their intended purposes.</li>
+    <li>To be informed of the identity of those serving on the organization's governing board, and to expect the board to exercise prudent judgment in its stewardship responsibilities.</li>
+    <li>To have access to the organization's most recent financial statements.</li>
+    <li>To be assured their gifts will be used for the purposes for which they were given.</li>
+    <li>To receive appropriate acknowledgement and recognition.</li>
+    <li>To be assured that information about their donation is handled with respect and with confidentiality to the extent provided by law.</li>
+    <li>To expect that all relationships with individuals representing organizations of interest to the donor will be professional in nature.</li>
+    <li>To be informed whether those seeking donations are volunteers, employees of the organization or hired solicitors.</li>
+    <li>To have the opportunity for their names to be deleted from mailing lists that an organization may intend to share.</li>
+    <li>To feel free to ask questions when making a donation and to receive prompt, truthful and forthright answers.</li>
+  </ol>
+  <p><strong>Content provided by:</strong> <a href="https://afpglobal.org/afp-canada?navItemNumber=23003" target="_blank" rel="noopener">The Association of Fundraising Professionals (AFP)</a></p>
+
+{% endblock %}

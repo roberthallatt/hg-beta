@@ -1,12 +1,25 @@
 // https://uicolors.app/create
 
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: ["./src/**/*.{html,js,css,scss,twig}"],
   theme: {
     screens: {
-      tablet: '640px',
-      laptop: '1024px',
-      desktop: '1280px',
+      '2xs': { min: '300px' },
+      xs: { max: '575px' }, // Mobile (iPhone 3 - iPhone XS Max).
+      sm: { min: '576px', max: '897px' }, // Mobile (matches max: iPhone 11 Pro Max landscape @ 896px).
+      md: { min: '898px', max: '1199px' }, // Tablet (matches max: iPad Pro @ 1112px).
+      lg: { min: '1200px' }, // Desktop smallest.
+      xl: { min: '1259px' }, // Desktop wide.
+      '2xl': { min: '1359px' } // Desktop widescreen.
+    },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
+      roman: 'upper-roman',
     },
     container: {
       center: true,
@@ -77,6 +90,35 @@ module.exports = {
             'linear-gradient(135deg, #ffed4a, #ff3860)',
       })
     },
+    textShadow: {
+      DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+      sm: '0 2px 2px var(--tw-shadow-color)',
+      lg: '0 4px 10px var(--tw-shadow-color)',
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/container-queries'),
+    require('tailwindcss-debug-screens'),
+    plugin(function ({ matchUtilities, addComponents, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      );
+      addComponents({
+        '.donate-button': {
+          textShadow: '1px 1px 0px #353935,2px 3px 0px #00000040',
+        },
+        '.donate-sidenav': {
+          textShadow: '1px 1px 0px #fff,2px 3px 0px #00000040',
+        },
+      });
+    }),
+  ],
 }
+
+// text shadow reference - https://purecode.ai/blogs/tailwind-text-shadow

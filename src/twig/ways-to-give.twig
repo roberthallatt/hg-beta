@@ -1,0 +1,34 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Ways to give" %}
+{% set seo_keywords = 'Privacy, Ethics, Accountability' %}
+{% set seo_description = 'Healthy Generations encourages donors to support Healthy Generations initiatives on a regular basis' %}
+{% set seo_title = "Ways to give" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+  <h1>{{ title }}</h1>
+  
+  <p>Healthy Generations encourages donors to support Healthy Generations initiatives on a regular basis.&nbsp;You can do this in a number of ways.&nbsp;You can send us a&nbsp;donation by&nbsp;<a href="http://www.healthygenerations.ca/info/contact">cheque</a>, along with a&nbsp;<a href="https://healthygenerations.ca/uploads/content/HG_-_new_donation_form_-_fillable.pdf">donation form</a>,&nbsp;or make an online donation by visiting our&nbsp;<a href="https://www.canadahelps.org/en/charities/healthy-generations/">CanadaHelps page</a>.&nbsp;Those who donate online will receive an electronic charitable tax receipt immediately.&nbsp;</p>
+  <p>All donations can be designated to support a Healthy Generations&nbsp;<a href="http://www.healthygenerations.ca/about/Who-We-Are">funding priority</a>.</p>
+  <p>Giving a one-time donation is a great way to show your continued support of Healthy Generations and its role in improving the health and well-being of children and youth.&nbsp;You can also support the Foundation through:</p>
+  <ul>
+  <li><strong>Monthly Giving:</strong>&nbsp;Spread your giving throughout the year by making a monthly donation.&nbsp;You can do so online by visiting our&nbsp;<a href="https://www.canadahelps.org/en/charities/healthy-generations/">CanadaHelps page</a>&nbsp;or by mailing a&nbsp;monthly cheque (or postdated cheques), along with a&nbsp;<a href="https://healthygenerations.ca/uploads/content/HG_-_new_donation_form_-_fillable.pdf">donation form</a>, to the&nbsp;<a href="http://www.healthygenerations.ca/info/contact">Healthy Generations.</a>.</li>
+  <li><strong>Celebration Giving:&nbsp;</strong>Celebration Giving is a unique way to acknowledge special occasions, such as births, weddings and birthdays, or to recognize the special people in your life. When Healthy Generations receives your donation, a card will be sent to the specified recipient acknowledging your thoughtful gift without sharing its monetary value. You can donate online by visiting our&nbsp;<a href="https://www.canadahelps.org/en/charities/healthy-generations/">CanadaHelps page</a>&nbsp;or by mailing a&nbsp;cheque, along with a&nbsp;<a href="https://healthygenerations.ca/uploads/content/HG_-_new_donation_form_-_fillable.pdf">donation form</a>,&nbsp;to the&nbsp;<a href="http://www.healthygenerations.ca/info/contact">Healthy Generations</a></li>
+  <li><strong>In-Memoriam Giving:</strong>&nbsp;In-Memoriam giving is a meaningful way to pay tribute to a loved one.&nbsp;When Healthy Generations receives your donation, a card will be sent to the loved one&rsquo;s relatives&nbsp;acknowledging your gift&nbsp;while expressing your sympathy.&nbsp;The monetary value of your donation will remain confidential. You can donate online by visiting our&nbsp;<a href="https://www.canadahelps.org/en/charities/healthy-generations/">CanadaHelps page</a>&nbsp;or by mailing a&nbsp;cheque, along with a&nbsp;<a href="https://healthygenerations.ca/uploads/content/HG_-_new_donation_form_-_fillable.pdf">donation form</a>,&nbsp;to the&nbsp;<a href="http://www.healthygenerations.ca/info/contact">Healthy Generations</a>.</li>
+  <li><strong>Planned Giving:</strong>&nbsp;A planned gift to Healthy Generations helps sustain the services and programs we provide and may further your own financial goals. Donors can demonstrate their special commitment to children and youth by including Healthy Generations in their will&nbsp;and estate planning.&nbsp;For more information please, contact Marlene Murray, Manager of Development at&nbsp;<a href="mailto:marlenem@cps.ca">marlenem@cps.ca</a>&nbsp;or 613-526-9397 ext.&nbsp;227.</li>
+  </ul>
+  <p>An official tax receipt will be issued for donations of $10 or more.</p>
+
+{% endblock %}

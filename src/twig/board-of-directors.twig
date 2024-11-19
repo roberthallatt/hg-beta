@@ -1,0 +1,75 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Board of Directors" %}
+{% set seo_keywords = 'Board' %}
+{% set seo_description = 'Healthy Generations values the trust of our donors and is committed to protecting their privacy.' %}
+{% set seo_title = "Board of Directors" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+  <h1>{{ title }}</h1>
+
+  <div class="lg:container mx-auto px-0 pb-8 not-prose">
+    <h2 class="sr-only">Board of Directors</h2>
+    <ul class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 list-none p-0">
+
+      <!-- Board Member 1 -->
+      <li class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img class="w-full h-48 object-cover object-center" src="https://i.pravatar.cc/300?img=1" alt="Sam Wong, MD" loading="lazy">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-gray-800 m-0 p-0">Sam Wong, MD</h3>
+          <p class="text-gray-600 m-0 p-0">President, Healthy Generations</p>
+          <p class="text-gray-600 m-0 p-0">Edmonton, Alberta</p>
+        </div>
+      </li>
+
+      <!-- Board Member 2 -->
+      <li class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img class="w-full h-48 object-cover object-center" src="https://i.pravatar.cc/300?img=2" alt="Board Member 2">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">John Smith</h3>
+          <p class="text-gray-600">
+            <a href="mailto:john.smith@example.com" class="hover:text-blue-500">john.smith@example.com</a>
+          </p>
+        </div>
+      </li>
+
+      <!-- Board Member 3 -->
+      <li class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img class="w-full h-48 object-cover object-center" src="https://i.pravatar.cc/300?img=3" alt="Board Member 3">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Emily Johnson</h3>
+          <p class="text-gray-600">
+            <a href="mailto:emily.johnson@example.com" class="hover:text-blue-500">emily.johnson@example.com</a>
+          </p>
+        </div>
+      </li>
+
+      <!-- Board Member 4 (will wrap to next line) -->
+      <li class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img class="w-full h-48 object-cover object-center" src="https://i.pravatar.cc/300?img=4" alt="Board Member 4">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Michael Brown</h3>
+          <p class="text-gray-600">
+            <a href="mailto:michael.brown@example.com" class="hover:text-blue-500">michael.brown@example.com</a>
+          </p>
+        </div>
+      </li>
+
+      <!-- Add more board members as needed -->
+
+    </ul>
+  </div>
+
+{% endblock %}

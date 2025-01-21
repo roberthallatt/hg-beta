@@ -4,3 +4,6 @@ localhost-key.pem
 localhost.pem
 .DS_Store
 *.code-workspace
+*/.ddev
+.ddev
+_site_assets

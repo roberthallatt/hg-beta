@@ -1,8 +1,0 @@
-{
-  "terminal.integrated.env.osx": {},
-  "css.customData": [
-    ".vscode/tailwind.json"
-  ],
-  "scss.lint.unknownAtRules": "ignore",
-  "editor.formatOnSave": false
-}

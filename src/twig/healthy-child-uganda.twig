@@ -1,0 +1,32 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Healthy Child Uganda" %}
+{% set seo_keywords = 'Advocacy' %}
+{% set seo_description = 'Donations support this community-based project to provide child health training to Ugandan community volunteers and local health care practitioners.' %}
+{% set seo_title = "Healthy Child Uganda" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+  <h1>{{ title }}</h1>
+
+  <p>Donations to&nbsp;<a href="http://www.healthychilduganda.org/">Healthy Child Uganda (HCU)</a>&nbsp;through Healthy Generations have made a difference in the lives of Ugandan babies, children, youth and health providers for over two decades! In return, our pediatricians and Canadians have learned from Ugandan partners and the strengths of rural communities.</p>
+  <p>Since 1999, the CPS has been a lead partner in HCU. Support of donors and numerous grants have enabled initiatives for more than 200 health facilities and their medical staff, and over 5000 volunteer community health workers to support children and youth and reach a million people in the southwestern region.</p>
+  <p>HCU is locally led by Mbarara University of Science and Technology. A number of Canadian Universities support capacity development and share learning. A priority for HCU is integration within the health systems and local leadership structures to sustain change.</p>
+  <p>Funding through Healthy Generations supports high priority activities and emerging opportunities. A big impact is possibly with relatively small amounts of funds raised, since activities can often piggy-back on existing programming and infrastructure.&nbsp; Spending is managed by an experienced HCU-Mbarara University team with oversight via University of Calgary, governed by the same processes as for multi-million-dollar grants, for maximum accountability and effectiveness.</p>
+  <p>Donations have been used for: emerging needs such as critical PPE and radio announcements for COVID-19, vaccine campaign sensitization, &lsquo;refresher&rsquo; training sessions for volunteer community health workers, continuing medical education for nurses and medical doctors, critical equipment for health facilities, nutritional supplements for malnourished and neglected children, medical treatment for special needs children, and more.</p>
+  <p>Long standing support through Healthy Generations is creating a brighter future for children and youth in Uganda!</p>
+  <p>You can contribute to Healthy Child Uganda&nbsp;<a href="https://www.canadahelps.org/en/charities/healthy-generations/">online</a>&nbsp;or by mailing a cheque along with a&nbsp;<a title="" href="https://healthygenerations.ca/uploads/content/HG_-_new_donation_form_-_fillable.pdf">donation form</a>.</p>
+  <p>An official tax receipt will be issued for donations of $10 or&nbsp;more.</p>
+
+{% endblock %}

@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const WatchExternalFilesPlugin = require('webpack-watch-files-plugin').default;
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const webpack = require('webpack');
 require('dotenv').config();
 
@@ -77,8 +78,8 @@ module.exports = (env) => {
     output: {
       publicPath: '/',
       path: path.resolve(__dirname, 'dist'),
-      filename: isProduction ? '[name].[contenthash].js' : '[name].js',
-      assetModuleFilename: isProduction ? '[name].[contenthash][ext]' : '[name][ext]',
+      filename: isProduction ? 'assets/js/[name].[contenthash].js' : 'assets/js/[name].js',
+      assetModuleFilename: isProduction ? 'assets/js/[name].[contenthash][ext]' : 'assets/js/[name][ext]',
     },
     cache: false,
     devtool: isProduction ? false : 'source-map',
@@ -111,12 +112,16 @@ module.exports = (env) => {
     module: {
       rules: [
         {
+          test: /\.(jpe?g|png|gif|svg|avif)$/i,
+          type: 'asset',
+        },
+        {
           test: /\.scss$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '../', // Adjust this path if needed
+                publicPath: '../../', // Adjust this path if needed
               },
             },
             "css-loader",
@@ -146,10 +151,6 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
-        },
-        {
           test: /\.twig$/,
           use: [
             'raw-loader',
@@ -160,7 +161,7 @@ module.exports = (env) => {
               },
             },
           ],
-        }
+        },
       ],
     },
     optimization: isProduction ? {
@@ -180,7 +181,7 @@ module.exports = (env) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: isProduction ? '[name].[contenthash].css' : '[name].css',
+        filename: isProduction ? 'assets/css/[name].[contenthash].css' : 'assets/css/[name].css',
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -193,6 +194,28 @@ module.exports = (env) => {
         ],
       }),
       new InjectAssetsPlugin(),
+      new ImageMinimizerPlugin({
+        generator: [
+          {
+            type: 'asset',
+            implementation: ImageMinimizerPlugin.imageminGenerate,
+            options: {
+              plugins: [
+                ['avif', { quality: 50 }],
+              ],
+            },
+          },
+        ],
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              ['mozjpeg', { quality: 75 }],
+              ['pngquant', { quality: [0.65, 0.9], speed: 4 }],
+            ],
+          },
+        },
+      }),
       ...(isProduction ? [new CleanWebpackPlugin({
         protectWebpackAssets: true,
         cleanOnceBeforeBuildPatterns: [],

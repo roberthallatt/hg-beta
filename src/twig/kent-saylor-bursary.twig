@@ -1,0 +1,64 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Dr. Kent Saylor Bursary for Indigenous Medical Students" %}
+{% set seo_keywords = 'Advocacy' %}
+{% set seo_description = 'Donations support this community-based project to provide child health training to Ugandan community volunteers and local health care practitioners.' %}
+{% set seo_title = "Dr. Kent Saylor Bursary for Indigenous Medical Students" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+  <h1>{{ title }}</h1>
+
+  <p>The&nbsp;<strong>
+      <em>Dr. Kent Saylor Bursary for Indigenous Medical Students</em>
+    </strong>&nbsp;is awarded each year to encourage First Nations, Inuit and M&eacute;tis medical students to consider a career in paediatrics.</p>
+  <p>Established in 2023, the $2,500 bursary is named in honour of Dr. Kent Saylor, the first Indigenous paediatrician in Canada and a former chair of the Canadian Paediatric Society&rsquo;s First Nations, Inuit and M&eacute;tis Health Committee. Dr. Saylor has been instrumental in promoting culturally safe health care for Indigenous children and youth.</p>
+  <p>
+    <strong>
+      <a href="https://www.surveymonkey.com/r/VQZH83K">Apply here - deadline October 31</a>
+    </strong>
+  </p>
+  <h3>Amount</h3>
+  <p>$2,500 funding each year by&nbsp;<a href="http://www.healthygenerations.ca/">Healthy Generations</a>&nbsp;and a complimentary one year CPS medical student membership</p>
+  <h3>Criteria</h3>
+  <p>To qualify, candidates must:</p>
+  <ul>
+    <li>Be an Indigenous* medical student at a Canadian university with a strong interest in paediatrics.</li>
+    <li>Must be in their 2<sup>nd</sup>&nbsp;or 3<sup>rd</sup>&nbsp;year of medical school</li>
+    <li>Submit an application and budget online outlining the applicant&rsquo;s interest in paediatrics and how the funds will enhance their education</li>
+    <li>Include a letter of support from Associate Dean for Undergraduate Education, the medical school faculty lead for Indigenous students, or a faculty member.</li>
+  </ul>
+  <p>Priority will be given to requests submitted by applicants who have not previously received the Dr. Kent Saylor Bursary for Indigenous Medical Students. However, previous bursary recipients may resubmit a new letter of request for bursary funding.</p>
+  <p>*To be eligible, an individual must attach proof regarding First Nations (status and non-status), Inuit or Metis, Band Council, Tribal Council, Treaty, community, nation or other affiliation. Accepted documentation may include:</p>
+  <ul>
+    <li>A copy of a valid Indian Status or Treaty card;</li>
+    <li>A copy of a valid Nunavut Trust Certificate card, roll number or any other proof&nbsp;accepted by Inuit communities;</li>
+    <li>A copy of a membership card from a M&eacute;tis registry recognized by the M&eacute;tis National Council (M&eacute;tis Nation of Ontario, the Manitoba M&eacute;tis Federation, the M&eacute;tis Nation of Saskatchewan, the M&eacute;tis Nation of Alberta and the M&eacute;tis Nation British Columbia);</li>
+    <li>A copy of a membership card from a M&eacute;tis Settlement General Council community;</li>
+    <li>Proof that an ancestor&rsquo;s name has been entered in the Indian Register according to the Indian Act, or on the band list of an individual band, or on the Inuit roll;</li>
+    <li>Written confirmation of nationhood in a federally recognized band council which&nbsp;has its own citizenship code;</li>
+    <li>Alternate documents may be considered on a case-by-case basis and will be reviewed by Indigenous committee members.</li>
+  </ul>
+  <h3>Reporting/Funding</h3>
+  <p>The funds will be disbursed to and in the name of the recipient. Therefore, the funds will be considered taxable income and will be a part of the recipient&rsquo;s personal income in the fiscal year in which they have received the funding. In compliance with the Canada Revenue Agency, grant recipients must provide their mailing address and Social Insurance Number (SIN) so that the HG can provide the recipient with a T4A slip at the end of the year and for the bursary amount that was received. The recipient must submit a final one page report, a final expense report and a letter or email of confirmation of participation from their program lead to Healthy Generations.</p>
+  <p>If the bursary funds have not been transferred within one year of being awarded, and without justification for an extension, the funds will be rescinded.</p>
+  <h3>Eligible Expenses</h3>
+  <ul>
+    <li>Accommodation, meals, travel costs and other applicable expenses to job shadow or do an elective with a licensed paediatrician</li>
+    <li>Study materials relating to paediatrics</li>
+    <li>Educational course/webinar focused on paediatrics (educational events such as or similar to&nbsp;<a href="https://na.eventscloud.com/website/48334/">the CPS Annual Conference</a>&nbsp;or a&nbsp;<a href="https://cps.ca/en/llp">CPS Lifelong Learning in Paediatrics Course)</a>
+    </li>
+  </ul>
+
+{% endblock %}

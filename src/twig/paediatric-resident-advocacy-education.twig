@@ -1,0 +1,29 @@
+{#
+
+This is a Twig template file. It will be compiled to HTML by Webpack.
+
+See https://dgrigg.com/blog/twig-webpack and https://gist.github.com/dgrigg/d4811ee9bc85d31376f4cb7365abf04d
+
+Requires thes packages: raw-loader, twig-html-loader
+
+#}
+
+{% set title = "Paediatric Resident Advocacy Education" %}
+{% set seo_keywords = 'Advocacy' %}
+{% set seo_description = 'Paediatric residents are the future and as advocates for youth, they are very fortunate to have the continued support of donors, who provide them with the opportunity to enhance their education through the support of grants.' %}
+{% set seo_title = "Paediatric Resident Advocacy Education" %}
+{% extends "_layouts/layout.twig" %}
+
+{% block main %}
+
+  <!-- Main Content -->
+
+  <h1>{{ title }}</h1>
+
+  <p>Paediatric residents are the future and as advocates for youth, they are very fortunate to have the continued support of donors, who provide them with the opportunity to enhance their education through the support of grants.</p>
+  <p>Each year, paediatric residents are invited to <a href="/barry-adams.html">submit grant proposals</a> to Healthy Generations.&nbsp;Each proposal outlines a community-based initiative that focuses on increasing access of care for underserved children and youth, and/or address health disparities among children and youth in their community. Once received, a committee reviews the submissions and selects the projects they feel will have the most positive impact on children and youth.&nbsp;<a href="http://www.healthygenerations.ca/Grants/paediatric-resident-advocacy-education#recipients" target="_blank" rel="noopener noreferrer">Review past projects</a>.</p>
+  <p>Through the funding of grants, donors continue to assist&nbsp; Healthy Generations in making resident advocacy education a priority.&nbsp;These opportunities, provided to residents during their training, will have a positive impact on them as they continue in advocacy roles throughout their careers.&nbsp;</p>
+  <p>You can contribute to the Paediatric Resident Advocacy Education initiative <a href="https://www.canadahelps.org/en/charities/healthy-generations/" target="_blank" rel="noopener noreferrer">online</a>&nbsp;or by mailing a cheque along with a <a title="" href="https://healthygenerations.ca/uploads/content/HG_-_new_donation_form_-_fillable.pdf" target="_blank" rel="noopener noreferrer">donation form</a>.</p>
+  <p>An official tax receipt will be issued for donations of $10 or&nbsp;more.</p>
+
+{% endblock %}

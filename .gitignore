@@ -7,3 +7,7 @@ localhost.pem
 */.ddev
 .ddev
 _site_assets
+*/.ssl
+.ssl
+*/.vscode
+.vscode
